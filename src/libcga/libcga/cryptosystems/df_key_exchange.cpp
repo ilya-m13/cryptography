@@ -6,7 +6,7 @@
 #include <random>
 
 const unsigned long k = 100;
-const unsigned long max_gen_value = 1000;
+const unsigned long max_gen_value = 1000000000;
 
 static bool miller_rabin_test(unsigned long n, unsigned long k) {
     if (n == 2 || n == 3) {
