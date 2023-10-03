@@ -11,7 +11,10 @@ Checks: >
   -bugprone-easily-swappable-parameters,
   -altera-*,
   -cppcoreguidelines-avoid-magic-numbers,
-  -readability-magic-numbers
+  -readability-magic-numbers,
+  -fuchsia-default-arguments-calls,
+  -cppcoreguidelines-init-variables,
+  -readability-isolate-declaration
 WarningsAsErrors: ''
 HeaderFilterRegex: '.*/cryptography/src/'
 AnalyzeTemporaryDtors: false

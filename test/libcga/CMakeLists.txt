@@ -10,8 +10,8 @@ set_compile_options(${test_name})
 target_sources(
     ${test_name}
     PRIVATE
-        libcga/cryptosystems/cryptosystems.test.cpp
-        libcga/cryptosystems/df_key_exchange.cpp
+        libcga/base_functions/base_functions.cpp
+        libcga/base_functions/diffie_hellman.cpp
 )
 
 target_link_libraries(
