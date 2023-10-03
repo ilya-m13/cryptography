@@ -62,16 +62,11 @@ void generate_shared_data(unsigned long &P, unsigned long &g) {
     std::uniform_int_distribution<unsigned long> dist(2, max_gen_value);
 
     unsigned long Q = 0;
-    while (true) {
-        do {
-            P = dist(gen);
-        } while (P % 2 == 0 || P < 5 || !miller_rabin_test(P, k));
-
+    do {
+        P = dist(gen);
         Q = (P - 1) / 2;
-        if (miller_rabin_test(Q, k)) {
-            break;
-        }
-    }
+    } while (P % 2 == 0 || P < 5 || !miller_rabin_test(P, k) ||
+             !miller_rabin_test(Q, k));
 
     do {
         g = dist(gen) % P;
