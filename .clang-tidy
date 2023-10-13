@@ -16,7 +16,8 @@ Checks: >
   -cppcoreguidelines-init-variables,
   -readability-isolate-declaration,
   -modernize-use-nodiscard,
-  -cppcoreguidelines-pro-type-reinterpret-cast
+  -cppcoreguidelines-pro-type-reinterpret-cast,
+  -cppcoreguidelines-prefer-member-initializer
 WarningsAsErrors: ''
 HeaderFilterRegex: '.*/cryptography/src/'
 AnalyzeTemporaryDtors: false
