@@ -3,7 +3,6 @@
 #include <libcga/encryption/shamir.hpp>
 
 #include <fstream>
-#include <iostream>
 
 TEST(Shamir, Encrypt) {
     cga::encryption::Shamir alice;
