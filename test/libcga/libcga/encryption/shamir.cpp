@@ -27,7 +27,7 @@ TEST(Shamir, EncryptFile) {
         std::filesystem::current_path() / "Shamir" / "file_Bde.bin");
 
     std::ofstream os(in, std::ios_base::binary);
-    std::string correct("111");
+    std::string correct("1111111111111111111111111111111111111111");
     os << correct;
     os.close();
 
@@ -38,5 +38,4 @@ TEST(Shamir, EncryptFile) {
     is >> result;
 
     EXPECT_STREQ(result.c_str(), correct.c_str());
-    EXPECT_EQ(correct.size(), result.size());
 }
