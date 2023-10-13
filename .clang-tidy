@@ -17,7 +17,8 @@ Checks: >
   -readability-isolate-declaration,
   -modernize-use-nodiscard,
   -cppcoreguidelines-pro-type-reinterpret-cast,
-  -cppcoreguidelines-prefer-member-initializer
+  -cppcoreguidelines-prefer-member-initializer,
+  -readability-convert-member-functions-to-static
 WarningsAsErrors: ''
 HeaderFilterRegex: '.*/cryptography/src/'
 AnalyzeTemporaryDtors: false

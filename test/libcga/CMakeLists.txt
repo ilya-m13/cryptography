@@ -14,6 +14,7 @@ target_sources(
         libcga/base_functions/diffie_hellman.cpp
         libcga/encryption/shamir.cpp
         libcga/encryption/elgamal.cpp
+        libcga/encryption/rsa.cpp
 )
 
 target_link_libraries(
