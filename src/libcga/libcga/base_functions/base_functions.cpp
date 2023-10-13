@@ -28,6 +28,7 @@ modular_exponentiation(unsigned long a, unsigned long x, unsigned long p) {
     return y;
 }
 
+// a >= b
 std::vector<int> extended_euclidean(int a, int b) {
     std::vector<int> U = {a, 1, 0};
     std::vector<int> V = {b, 0, 1};
