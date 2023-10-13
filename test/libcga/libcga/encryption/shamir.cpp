@@ -8,7 +8,7 @@ TEST(Shamir, Encrypt) {
     cga::encryption::Shamir alice;
     cga::encryption::Shamir bob(alice.P());
 
-    const unsigned long result = 123456789UL;
+    const unsigned long result = alice.P() - 1;
 
     unsigned long value = alice.encrypt(result);
     value = bob.encrypt(value);
