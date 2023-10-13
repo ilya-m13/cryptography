@@ -27,7 +27,8 @@ void generate_shared_data(unsigned long &P, unsigned long &g) {
 
     do {
         g = dist(gen) % P;
-    } while (cga::base_functions::modular_exponentiation(g, Q, P) == 1);
+    } while (g < 2 &&
+             cga::base_functions::modular_exponentiation(g, Q, P) == 1);
 }
 
 void generate_keys(
