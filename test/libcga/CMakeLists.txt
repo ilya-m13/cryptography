@@ -12,6 +12,7 @@ target_sources(
     PRIVATE
         libcga/base_functions/base_functions.cpp
         libcga/base_functions/diffie_hellman.cpp
+        libcga/encryption/shamir.cpp
 )
 
 target_link_libraries(

@@ -14,7 +14,9 @@ Checks: >
   -readability-magic-numbers,
   -fuchsia-default-arguments-calls,
   -cppcoreguidelines-init-variables,
-  -readability-isolate-declaration
+  -readability-isolate-declaration,
+  -modernize-use-nodiscard,
+  -cppcoreguidelines-pro-type-reinterpret-cast
 WarningsAsErrors: ''
 HeaderFilterRegex: '.*/cryptography/src/'
 AnalyzeTemporaryDtors: false
