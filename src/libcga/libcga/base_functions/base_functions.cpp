@@ -29,13 +29,13 @@ modular_exponentiation(unsigned long a, unsigned long x, unsigned long p) {
 }
 
 // a >= b
-std::vector<int> extended_euclidean(int a, int b) {
-    std::vector<int> U = {a, 1, 0};
-    std::vector<int> V = {b, 0, 1};
-    std::vector<int> T(3);
+std::vector<long> extended_euclidean(long a, long b) {
+    std::vector<long> U = {a, 1, 0};
+    std::vector<long> V = {b, 0, 1};
+    std::vector<long> T(3);
 
     while (V[0] != 0) {
-        int q = U[0] / V[0];
+        long q = U[0] / V[0];
         T = {U[0] % V[0], U[1] - q * V[1], U[2] - q * V[2]};
         U = std::move(V);
         V = std::move(T);

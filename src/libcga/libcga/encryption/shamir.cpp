@@ -61,14 +61,14 @@ void Shamir::generate_CD(unsigned long P) {
         unsigned long value = dist(gen);
         C_ = value % 2 == 0 ? value + 1 : value;
     } while (cga::base_functions::extended_euclidean(
-                 static_cast<int>(std::max({C_, P - 1})),
-                 static_cast<int>(std::min({C_, P - 1})))[0] != 1);
+                 static_cast<long>(std::max({C_, P - 1})),
+                 static_cast<long>(std::min({C_, P - 1})))[0] != 1);
 
-    const int result = C_ >= P - 1
+    const long result = C_ >= P - 1
         ? cga::base_functions::extended_euclidean(
-              static_cast<int>(C_), static_cast<int>(P - 1))[1]
+              static_cast<long>(C_), static_cast<long>(P - 1))[1]
         : cga::base_functions::extended_euclidean(
-              static_cast<int>(P - 1), static_cast<int>(C_))[2];
+              static_cast<long>(P - 1), static_cast<long>(C_))[2];
     D_ = result < 0 ? result + P - 1 : result;
 }
 

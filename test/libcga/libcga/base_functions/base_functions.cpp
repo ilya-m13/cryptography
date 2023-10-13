@@ -14,7 +14,7 @@ TEST(ModularExponentiation, test) {
 
 TEST(ExtendedEuclidean, test) {
     auto result = cga::base_functions::extended_euclidean(2745721, 1634950);
-    std::vector<int> correct = {1, -420519, 706216};
+    std::vector<long> correct = {1, -420519, 706216};
     EXPECT_TRUE(result == correct);
 }
 
