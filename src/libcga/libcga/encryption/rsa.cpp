@@ -6,7 +6,7 @@
 #include <limits>
 #include <random>
 
-const unsigned long max_gen_value = 1000;
+const unsigned long max_gen_value = 10000;
 const unsigned long k = 100;
 
 static std::filesystem::path append_filename(
