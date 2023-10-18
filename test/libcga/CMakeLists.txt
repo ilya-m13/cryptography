@@ -15,6 +15,7 @@ target_sources(
         libcga/encryption/shamir.cpp
         libcga/encryption/elgamal.cpp
         libcga/encryption/rsa.cpp
+        libcga/encryption/vernam.cpp
 )
 
 target_link_libraries(
