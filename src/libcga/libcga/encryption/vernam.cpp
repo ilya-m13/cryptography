@@ -40,7 +40,7 @@ bool Vernam::encrypt_file(const std::filesystem::path &in) {
     os[1].open(append_filename(in, "_VernamDecrypt"), std::ios_base::binary);
 
     unsigned char byte = 0;
-    while (is >> byte) {
+    while (is.read(reinterpret_cast<char *>(&byte), sizeof(unsigned char))) {
         const auto pair = encrypt(byte);
         os[0] << pair.first;
 
