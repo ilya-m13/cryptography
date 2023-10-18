@@ -91,7 +91,7 @@ bool Shamir::encrypt_file(const std::filesystem::path &in) {
     os[2].open(append_filename(in, "_Ade"), std::ios_base::binary);
     os[3].open(append_filename(in, "_Bde"), std::ios_base::binary);
 
-    unsigned long value;
+    unsigned long value = 0;
     while (is.read(reinterpret_cast<char *>(&value), sizeof(char))) {
         value = alice.encrypt(value);
         os[0].write(reinterpret_cast<char *>(&value), sizeof(unsigned long));
