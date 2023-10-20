@@ -21,7 +21,8 @@ TEST(ElGamal, EncryptFile) {
     const std::filesystem::path in(
         std::filesystem::current_path() / "ElGamal" / "file.bin");
     const std::filesystem::path out(
-        std::filesystem::current_path() / "ElGamal" / "file_Decrypt.bin");
+        std::filesystem::current_path() / "ElGamal" /
+        "file_ElGamalDecrypt.bin");
 
     std::ofstream os(in, std::ios_base::binary);
     std::string correct("111111111111111111111111111111111111111111111");

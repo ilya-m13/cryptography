@@ -71,12 +71,45 @@ ElGamal::encrypt(unsigned long m, unsigned long d) const {
     return pair;
 }
 
+void ElGamal::encrypt(
+    std::istream &is, std::ostream &os, unsigned long d) const {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<unsigned long> dist(1, p_ - 2);
+
+    const unsigned long k = dist(gen);
+    const unsigned long r =
+        cga::base_functions::modular_exponentiation(g_, k, p_);
+
+    unsigned long m = 0;
+    os.write(reinterpret_cast<const char *>(&r), sizeof(unsigned long));
+    while (is.read(reinterpret_cast<char *>(&m), sizeof(char))) {
+        const unsigned long e =
+            (m * cga::base_functions::modular_exponentiation(d, k, p_)) % p_;
+        os.write(reinterpret_cast<const char *>(&e), sizeof(unsigned long));
+    }
+}
+
 unsigned long
 ElGamal::decrypt(std::pair<unsigned long, unsigned long> data) const {
     return (data.second *
             cga::base_functions::modular_exponentiation(
                 data.first, p_ - 1 - c_, p_)) %
         p_;
+}
+
+void ElGamal::decrypt(std::istream &is, std::ostream &os) const {
+    unsigned long r = 0;
+    is.read(reinterpret_cast<char *>(&r), sizeof(unsigned long));
+
+    unsigned long e = 0;
+    while (is.read(reinterpret_cast<char *>(&e), sizeof(unsigned long))) {
+        const unsigned long result =
+            (e *
+             cga::base_functions::modular_exponentiation(r, p_ - 1 - c_, p_)) %
+            p_;
+        os.write(reinterpret_cast<const char *>(&result), sizeof(char));
+    }
 }
 
 unsigned long ElGamal::p() const {
@@ -100,14 +133,15 @@ bool ElGamal::encrypt_file(const std::filesystem::path &in) {
     ElGamal alice;
     ElGamal bob(alice.p(), alice.g());
 
-    std::ofstream os(append_filename(in, "_Decrypt"), std::ios_base::binary);
+    std::ofstream os(
+        append_filename(in, "_ElGamalEncrypt"), std::ios_base::binary);
+    alice.encrypt(is, os, bob.d());
+    is.close();
+    os.close();
 
-    unsigned long m = 0;
-    while (is.read(reinterpret_cast<char *>(&m), sizeof(char))) {
-        auto data = alice.encrypt(m, bob.d());
-        m = bob.decrypt(data);
-        os.write(reinterpret_cast<char *>(&m), sizeof(char));
-    }
+    is.open(append_filename(in, "_ElGamalEncrypt"), std::ios_base::binary);
+    os.open(append_filename(in, "_ElGamalDecrypt"), std::ios_base::binary);
+    bob.decrypt(is, os);
 
     return true;
 }

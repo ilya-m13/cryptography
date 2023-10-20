@@ -11,7 +11,10 @@ class ElGamal {
 
     std::pair<unsigned long, unsigned long>
     encrypt(unsigned long m, unsigned long d) const;
+    void encrypt(std::istream &is, std::ostream &os, unsigned long d) const;
+
     unsigned long decrypt(std::pair<unsigned long, unsigned long> data) const;
+    void decrypt(std::istream &is, std::ostream &os) const;
 
     static bool encrypt_file(const std::filesystem::path &in);
 
