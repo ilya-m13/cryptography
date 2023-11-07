@@ -17,10 +17,18 @@ target_sources(
         libcga/encryption/elgamal.cpp
         libcga/encryption/rsa.cpp
         libcga/encryption/vernam.cpp
+        libcga/signature/rsa.cpp
+        libcga/signature/elgamal.cpp
+        libcga/signature/gost.cpp
 )
 
 target_include_directories(
     ${lib_name}
-    PUBLIC
-        .
+    PUBLIC .
+    SYSTEM PRIVATE ${CRYPTOPP_INCLUDE_DIRS}
+)
+
+target_link_libraries(
+    ${lib_name}
+        ${cryptopp_lib}
 )
