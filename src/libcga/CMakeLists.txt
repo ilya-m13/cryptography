@@ -20,6 +20,8 @@ target_sources(
         libcga/signature/rsa.cpp
         libcga/signature/elgamal.cpp
         libcga/signature/gost.cpp
+        libcga/mental_poker/table.cpp
+        libcga/mental_poker/user.cpp
 )
 
 target_include_directories(
