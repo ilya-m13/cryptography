@@ -22,6 +22,10 @@ target_sources(
         libcga/signature/gost.cpp
         libcga/mental_poker/table.cpp
         libcga/mental_poker/user.cpp
+        libcga/blind_signature/client.cpp
+        libcga/blind_signature/client.hpp
+        libcga/blind_signature/server.cpp
+        libcga/blind_signature/server.hpp
 )
 
 target_include_directories(
