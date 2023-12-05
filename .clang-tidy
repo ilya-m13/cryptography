@@ -21,7 +21,11 @@ Checks: >
   -readability-convert-member-functions-to-static,
   -fuchsia-statically-constructed-objects,
   -cert-err58-cpp,
-  -bugprone-exception-escape
+  -bugprone-exception-escape,
+  -misc-non-private-member-variables-in-classes,
+  -cppcoreguidelines-pro-type-member-init,
+  -hicpp-member-init,
+  -readability-implicit-bool-conversion
 WarningsAsErrors: ''
 HeaderFilterRegex: '.*/cryptography/src/'
 AnalyzeTemporaryDtors: false

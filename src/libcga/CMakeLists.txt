@@ -26,13 +26,12 @@ target_sources(
         libcga/blind_signature/client.hpp
         libcga/blind_signature/server.cpp
         libcga/blind_signature/server.hpp
+        libcga/zkprot/parser.cpp
+        libcga/zkprot/user.cpp
 )
 
-target_include_directories(
-    ${lib_name}
-    PUBLIC .
-    SYSTEM PRIVATE ${CRYPTOPP_INCLUDE_DIRS}
-)
+target_include_directories(${lib_name} SYSTEM PRIVATE ${CRYPTOPP_INCLUDE_DIRS})
+target_include_directories(${lib_name} PUBLIC .)
 
 target_link_libraries(
     ${lib_name}
