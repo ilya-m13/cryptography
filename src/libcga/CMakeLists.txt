@@ -28,6 +28,8 @@ target_sources(
         libcga/blind_signature/server.hpp
         libcga/zkprot/parser.cpp
         libcga/zkprot/user.cpp
+        libcga/graphcol/parser.cpp
+        libcga/graphcol/user.cpp
 )
 
 target_include_directories(${lib_name} SYSTEM PRIVATE ${CRYPTOPP_INCLUDE_DIRS})
